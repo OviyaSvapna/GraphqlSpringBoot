@@ -1,0 +1,100 @@
+type Query
+{
+    room(id: ID): RoomResponse
+    user(id : ID!):Boolean
+    findAll : [Room]
+}
+
+type Mutation
+{
+    createUser(createUserRequest : CreateUserRequest) : UserResponse
+    createRoom(createRoomRequest : CreateRoomRequest) :RoomResponse
+    bookRoom(updateRoomRequest : UpdateRoomRequest) : String
+    cancelRoom(deleteRoomRequest : DeleteRoomRequest) : String
+}
+
+input DeleteRoomRequest {
+    roomNo : ID
+    fromDate : String
+    toDate : String
+    status : String
+}
+
+input UpdateRoomRequest {
+    roomNo : ID
+    fromDate : String
+    toDate : String
+    status : String
+
+}
+
+input CreateUserRequest
+{
+    id : ID
+    name : String
+    userName : String
+    mobile : String
+    password : String
+    confirmPassword : String
+    email : String
+    address : String
+    city : String
+    state : String
+}
+
+input CreateRoomRequest
+{
+    beds : Int
+    noOfPerson : Int
+    roomFare : Float
+    roomType : String
+    roomNo : Int
+    status : String
+    fromDate : String
+    toDate : String
+
+}
+
+type UserResponse {
+
+    id : ID
+    name : String
+    userName : String
+    mobile : String
+    password : String
+    confirmPassword : String
+    email : String
+    address : String
+    city : String
+    state : String
+
+}
+
+type RoomResponse
+{
+    id : ID
+    beds : Int
+    noOfPerson : Int
+    roomFare : Float
+    roomType : String
+    roomNo : Int
+    status : String
+    fromDate : String
+    toDate : String
+    userid : Int
+}
+
+type Room
+{
+    id : ID
+    beds : Int
+    noOfPerson : Int
+    roomFare : Float
+    roomType : String
+    roomNo : Int
+    status : String
+    fromDate : String
+    toDate : String
+    userid : Int
+
+}
